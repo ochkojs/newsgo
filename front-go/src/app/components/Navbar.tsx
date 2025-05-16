@@ -24,7 +24,7 @@ export const NavbarMyMenu = () => {
   ];
 
   return (
-    <div className="flex w-screen justify-center border-b-2 border-amber-600 py-5 px-22">
+    <div className="flex border-b-2 border-amber-600 py-5">
       <div className="flex flex-row w-[1440px] items-center justify-between">
         <a href="/">
           <p className="text-3xl font-bold">NEWS GO</p>
@@ -34,7 +34,7 @@ export const NavbarMyMenu = () => {
           <Menubar>
             {menuList.map((menu, index) => (
               <MenubarMenu key={index}>
-                <MenubarTrigger className="font-bold hover:cursor-pointer">
+                <MenubarTrigger className="font-bold uppercase hover:cursor-pointer hover:text-orange-500">
                   {menu}
                 </MenubarTrigger>
               </MenubarMenu>

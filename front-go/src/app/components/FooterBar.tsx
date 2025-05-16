@@ -1,6 +1,6 @@
 export const FooterMyBar = () => {
   return (
-    <div className="flex w-screen justify-center border-t-2 py-3 px-22">
+    <div className="flex w-full mx-auto border-t-2 py-3">
       <div className="flex flex-row w-full max-w-[1440px] items-center justify-between font-finlandica">
         <p className="font-bold">NewsGo.mn © 2023</p>
         <ul className="flex gap-3">

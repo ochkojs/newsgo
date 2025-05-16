@@ -40,3 +40,23 @@ export const getPosts = async (_, res) => {
     console.error(error, "error");
   }
 };
+
+export const getPostId = async (_, res) => {
+  const { _id } = req.body;
+  try {
+    const food = await FoodModel.find(_id);
+    res.status(200).send({
+      success: true,
+      food: food,
+    });
+  } catch (error) {
+    console.error(error, "Error");
+    return res
+      .status(400)
+      .send({
+        success: false,
+        message: error,
+      })
+      .end();
+  }
+};

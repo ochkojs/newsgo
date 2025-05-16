@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Finlandica } from "next/font/google";
+import { Finlandica } from "next/font/google";
 import "./globals.css";
 import { NavbarMyMenu } from "./components/Navbar";
 import { FooterMyBar } from "./components/FooterBar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 const finlandica = Finlandica({
-  variable: "--font-finlandica",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // хэрэгтэй жинүүдийг жагсаана
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -30,11 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${finlandica.variable}`}>
+    <html lang="en">
       <body
-        className={`${finlandica.variable}  antialiased flex flex-col w-screen justify-center`}
+        className={`${finlandica.className} antialiased flex flex-col w-screen justify-center`}
       >
-        <div className="w-full">
+        <div className="flex flex-col w-[1440px] mx-auto">
           <NavbarMyMenu />
           {children}
           <FooterMyBar />
