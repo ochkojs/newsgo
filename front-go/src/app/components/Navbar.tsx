@@ -27,7 +27,7 @@ export const NavbarMyMenu = () => {
     <div className="flex border-b-2 border-amber-600 py-5">
       <div className="flex flex-row w-[1440px] items-center justify-between">
         <a href="/">
-          <p className="text-3xl font-bold">NEWS GO</p>
+          <p className="text-3xl text-orange-500 font-bold">NEWS GO</p>
         </a>
 
         <div className="flex gap-5">
