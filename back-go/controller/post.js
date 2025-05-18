@@ -41,22 +41,19 @@ export const getPosts = async (_, res) => {
   }
 };
 
-export const getPostId = async (_, res) => {
-  const { _id } = req.body;
+export const getPostId = async (req, res) => {
   try {
-    const food = await FoodModel.find(_id);
-    res.status(200).send({
-      success: true,
-      food: food,
-    });
+    console.log("REQ.PARAMS.ID:", req.params.id); // 👀 log this
+    const { id } = req.params;
+
+    const post = await PostModel.findById(id);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    res.json(post);
   } catch (error) {
-    console.error(error, "Error");
-    return res
-      .status(400)
-      .send({
-        success: false,
-        message: error,
-      })
-      .end();
+    console.error("Error fetching post:", error);
+    res.status(500).json({ message: "Server error" });
   }
 };

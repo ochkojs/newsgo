@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Dot } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type postformat = {
   _id: string;
@@ -40,11 +41,18 @@ export const NewsCard = ({ post }: posttype) => {
   const month = monthNames[postDate.getMonth()];
   const year = postDate.getFullYear();
 
+  const handleOnClick = (id: string) => {
+    router.push(`/post/${id}`);
+  };
+
+  const router = useRouter();
+
   const formatted = `${day} ${month} ${year}`;
   return (
     <div
       key={post._id}
-      className="flex flex-col w-[335px] h-[444px] font-finlandica gap-3 my-1"
+      className="flex flex-col w-[335px] h-[444px] font-finlandica gap-3 my-1 hover:cursor-pointer"
+      onClick={() => handleOnClick(post._id)}
     >
       <div className="relative w-full h-50">
         <Image

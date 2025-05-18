@@ -18,7 +18,7 @@ export const NewsFeedComponent = () => {
   const fetchData = async () => {
     const result = await axios.get("http://localhost:3009/post/posts");
     setPosts(result.data.posts);
-    console.log(posts, "Fetched Posts");
+    console.log(result.data.posts, "Fetched Posts");
   };
 
   useEffect(() => {

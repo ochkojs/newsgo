@@ -6,4 +6,4 @@ export const postRouter = express.Router();
 postRouter
   .post("/createpost", createPost)
   .get("/posts", getPosts)
-  .get("/id", getPostId);
+  .get("/:id", getPostId);
