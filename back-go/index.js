@@ -4,6 +4,7 @@ import cors from "cors";
 import { connectMongoDB } from "./connectDb.js";
 import { postRouter } from "./routes/post.js";
 import { userRouter } from "./routes/user.js";
+import { categoryRouter } from "./routes/category.js";
 
 // index.js
 const newsgo = express();
@@ -17,7 +18,7 @@ newsgo.use(cors());
 newsgo.use(json());
 newsgo.use("/post", postRouter);
 newsgo.use("/user", userRouter);
-
+newsgo.use("/category", categoryRouter);
 // Үндсэн маршрут
 newsgo.get("/", (req, res) => {
   res.send("Сайн байна уу! Node.js backend ажиллаж байна.");

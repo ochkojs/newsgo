@@ -1,5 +1,3 @@
-import axios from "axios";
-import { NewsCard } from "./components/NewsCard";
 import { NewsFeedComponent } from "./components/NewsFeed";
 import { FeaturedNewsComponent } from "./components/Featured";
 

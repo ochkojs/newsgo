@@ -50,10 +50,32 @@ export const getPostId = async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-
     res.json(post);
   } catch (error) {
     console.error("Error fetching post:", error);
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getPostsByCategoryId = async (req, res) => {
+  const { categoryId } = req.params;
+  try {
+    const postByCategoryId = await PostModel.find({
+      categoryId: categoryId,
+    }).populate("categoryId");
+
+    return res
+      .status(200)
+      .send({ success: true, postByCategoryId: postByCategoryId })
+      .end();
+  } catch (error) {
+    console.error(error, "error");
+    return res
+      .status(400)
+      .send({
+        success: false,
+        message: error,
+      })
+      .end();
   }
 };
