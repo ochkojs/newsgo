@@ -63,7 +63,6 @@ export const getPostsByCategoryId = async (req, res) => {
     const postByCategoryId = await PostModel.find({
       categoryId: categoryId,
     }).populate("categoryId");
-
     return res
       .status(200)
       .send({ success: true, postByCategoryId: postByCategoryId })
